@@ -1,0 +1,63 @@
+/* Joels Solution - much easier and more elegant than working with an overlay and the !important
+
+img {
+    opacity: 0.2;
+}
+
+.currentdog img {
+    opacity: initial;
+}
+
+*/
+
+
+.doggies {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container {
+    /* this is a hack, because the NavLink needs to be before the image, so that the sibling selector for the link further down works */
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.parent {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 1.5rem;
+}
+
+.overlay {
+    /* colored overlay gets added per JavaScript in Dog() function */
+    /* background-color: rgba(255, 0, 0, 0.5); */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+
+}
+
+img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid blueviolet;
+}
+
+a.active ~ div.parent div.overlay {
+    /* to get the colored overlay removed when clicking on the NavLink of the dog */
+    background-color: transparent !important;
+}
+
+.dogInfo {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 3rem;
+}
+
